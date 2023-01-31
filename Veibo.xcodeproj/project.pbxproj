@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A481405829890103005DCE55 /* DiscoverTrendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A481405729890103005DCE55 /* DiscoverTrendView.swift */; };
+		A481405A2989012B005DCE55 /* DiscoverHotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48140592989012B005DCE55 /* DiscoverHotView.swift */; };
 		A4F05780298769B900CB6359 /* VeiboApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0577F298769B900CB6359 /* VeiboApp.swift */; };
 		A4F05782298769B900CB6359 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F05781298769B900CB6359 /* ContentView.swift */; };
 		A4F05784298769BA00CB6359 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F05783298769BA00CB6359 /* Assets.xcassets */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A481405729890103005DCE55 /* DiscoverTrendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverTrendView.swift; sourceTree = "<group>"; };
+		A48140592989012B005DCE55 /* DiscoverHotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverHotView.swift; sourceTree = "<group>"; };
 		A4F0577C298769B900CB6359 /* Veibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Veibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F0577F298769B900CB6359 /* VeiboApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeiboApp.swift; sourceTree = "<group>"; };
 		A4F05781298769B900CB6359 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 				A4F05781298769B900CB6359 /* ContentView.swift */,
 				A4F0578D2987700400CB6359 /* HomeContentView.swift */,
 				A4F0578F2987701F00CB6359 /* DiscoverContentView.swift */,
+				A481405729890103005DCE55 /* DiscoverTrendView.swift */,
+				A48140592989012B005DCE55 /* DiscoverHotView.swift */,
 				A4F057912987702D00CB6359 /* MessageContentView.swift */,
 				A4F057932987703700CB6359 /* ProfileContentView.swift */,
 				A4F05783298769BA00CB6359 /* Assets.xcassets */,
@@ -149,10 +155,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A481405829890103005DCE55 /* DiscoverTrendView.swift in Sources */,
 				A4F057942987703700CB6359 /* ProfileContentView.swift in Sources */,
 				A4F057922987702D00CB6359 /* MessageContentView.swift in Sources */,
 				A4F0578E2987700400CB6359 /* HomeContentView.swift in Sources */,
 				A4F057902987701F00CB6359 /* DiscoverContentView.swift in Sources */,
+				A481405A2989012B005DCE55 /* DiscoverHotView.swift in Sources */,
 				A4F05782298769B900CB6359 /* ContentView.swift in Sources */,
 				A4F05780298769B900CB6359 /* VeiboApp.swift in Sources */,
 			);

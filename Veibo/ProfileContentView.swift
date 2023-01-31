@@ -28,17 +28,14 @@ struct ProfileContentView: View {
                         Image(systemName: "chevron.right")
                             .foregroundColor(.gray.opacity(0.6))
                     }
+                } footer: {
+                    
                 }
-//                .listSectionSeparator(.hidden, edges: .all)
+                
                 Section {
                     ProfileRowView(imageName: "moon", title: "设置")
-                }
+                } 
           
-//                .listSectionSeparator(.hidden, edges: .all)
-//                Color.red.frame(height: 0)
-//                ProfileRowSepratorView()
-//                    .frame(height: 10)
-                
                 Section {
                     ProfileRowView(imageName: "moon", title: "深色模式")
                     ProfileRowView(imageName: "star", title: "我的收藏")
@@ -47,6 +44,8 @@ struct ProfileContentView: View {
                     ProfileRowView(imageName: "basket", title: "草稿箱")
                     ProfileRowView(imageName: "exclamationmark.bubble.circle", title: "关注的超话")
                     ProfileRowView(imageName: "headphones.circle", title: "客服中心")
+                } header: {
+                    
                 }
                 
                 Section {
