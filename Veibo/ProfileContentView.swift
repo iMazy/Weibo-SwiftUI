@@ -9,53 +9,54 @@ import SwiftUI
 
 struct ProfileContentView: View {
     var body: some View {
-   
+        
         NavigationView {
-            List {
-                Section {
+            ScrollView {
+                LazyVStack(spacing: 0) {
                     HStack {
                         Image(systemName: "person.crop.circle")
                             .resizable()
                             .frame(width: 50, height: 50)
-                            .padding(.vertical, 5)
-                        VStack(alignment: .leading) {
+                            .padding(EdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 10))
+                        
+                        VStack(alignment: .leading, spacing: 6) {
                             Text("简单不简单")
                             Text("188粉丝")
                                 .font(Font.system(size: 12, weight: .light))
-                                .frame(height: 8)
                         }
                         Spacer()
                         Image(systemName: "chevron.right")
                             .foregroundColor(.gray.opacity(0.6))
+                            .padding(.trailing, 15)
                     }
-                } footer: {
+                    .background(Color.white)
+                    .padding(.top, 10)
                     
-                }
-                
-                Section {
-                    ProfileRowView(imageName: "moon", title: "设置")
-                } 
-          
-                Section {
-                    ProfileRowView(imageName: "moon", title: "深色模式")
-                    ProfileRowView(imageName: "star", title: "我的收藏")
-                    ProfileRowView(imageName: "play.rectangle.on.rectangle", title: "稍后再看")
-                    ProfileRowView(imageName: "qrcode.viewfinder", title: "扫一扫")
-                    ProfileRowView(imageName: "basket", title: "草稿箱")
-                    ProfileRowView(imageName: "exclamationmark.bubble.circle", title: "关注的超话")
-                    ProfileRowView(imageName: "headphones.circle", title: "客服中心")
-                } header: {
+                    Group {
+                        ProfileRowView(imageName: "moon", title: "设置")
+                    }
+                    .padding(.top, 10)
                     
+                    Group {
+                        ProfileRowView(imageName: "moon", title: "深色模式")
+                            .padding(.top, 10)
+                        ProfileRowView(imageName: "star", title: "我的收藏")
+                        ProfileRowView(imageName: "play.rectangle.on.rectangle", title: "稍后再看")
+                        ProfileRowView(imageName: "qrcode.viewfinder", title: "扫一扫")
+                        ProfileRowView(imageName: "basket", title: "草稿箱")
+                        ProfileRowView(imageName: "exclamationmark.bubble.circle", title: "关注的超话")
+                        ProfileRowView(imageName: "headphones.circle", title: "客服中心")
+                    }
+                    
+                    Group {
+                        ProfileRowView(imageName: "moon", title: "屏蔽设置")
+                    }
+                    .padding(.top, 10)
                 }
-                
-                Section {
-                    ProfileRowView(imageName: "moon", title: "屏蔽设置")
-                }
+                .navigationTitle("我的")
+                .navigationBarTitleDisplayMode(.inline)
             }
-            .listStyle(.grouped)
-            .navigationTitle("我的")
-            .navigationBarTitleDisplayMode(.inline)
-            .background(Color.red)
+            .background(Color.gray.opacity(0.1))
         }
     }
     
@@ -78,23 +79,27 @@ struct ProfileRowView: View {
     var title: String
     
     var body: some View {
-        HStack{
+        HStack(spacing: 12) {
             Image(systemName: imageName)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 16, height: 16)
-
+                .padding(.leading, 15)
+            
             Text(title)
                 .font(Font.system(size: 15, weight: .light))
                 .foregroundColor(.primary)
-                .offset(x: 5)
+            Spacer()
         }
+        .padding(EdgeInsets())
+        .frame(height: 44)
+        .background(Color.white)
     }
 }
 
 
 struct ProfileRowSepratorView: View {
-
+    
     var body: some View {
         Color.red
     }

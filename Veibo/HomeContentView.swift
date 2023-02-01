@@ -31,30 +31,36 @@ struct HomeContentView: View {
                             "stmarylake",
                             "turtlerock"]
     
+    @State private var selectedTab: Int = 0
+    
     var body: some View {
         
         NavigationView {
-            TabView {
-                List {
-                    ForEach(0...30, id: \.self) { _ in
-                        if #available(iOS 15.0, *) {
-                            let randomIndex = Int.random(in: 0...9)
-                            MainListRowView(images: images[randomPick: randomIndex])
-                                .listSectionSeparator(.hidden)
-                        } else {
-                            // Fallback on earlier versions
-                            MainListRowView(images: images)
+            TabView(selection: $selectedTab) {
+                HomePageView(isFollowed: true, images: images)
+                    .tag(0)
+                HomePageView(isFollowed: false, images: images)
+                    .tag(1)
+            }
+//            .animation(.linear)
+            .tabViewStyle(.page(indexDisplayMode: .never))
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    HStack(spacing: 12) {
+                        Button("关注") {
+                            selectedTab = 0
                         }
+                        .font(Font.system(size: 17, weight: .medium))
+                        .foregroundColor(Color.black.opacity(selectedTab == 0 ? 1 : 0.5))
+                        Button("推荐") {
+                            selectedTab = 1
+                        }
+                        .font(Font.system(size: 17, weight: .medium))
+                        .foregroundColor(Color.black.opacity(selectedTab == 1 ? 1 : 0.5))
                     }
                 }
-                .padding(.zero)
-                .listStyle(.plain)
-                .navigationBarTitle(Text("首页"), displayMode: .inline)
-                .background(Color.red)
-                Text("recommend")
             }
-            .tabViewStyle(.page(indexDisplayMode: .never))
-    
         }
         
     }
