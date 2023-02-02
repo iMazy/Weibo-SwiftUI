@@ -32,7 +32,8 @@ struct HomeContentView: View {
                             "turtlerock"]
     
     @State private var selectedTab: Int = 0
-    
+    @EnvironmentObject var appState: AppState
+
     var body: some View {
         
         NavigationView {
@@ -74,23 +75,35 @@ struct HomeContentView_Previews: PreviewProvider {
 
 struct MainListRowView: View {
     
-    var images: [String] = ["twinlake"]
+    var timeline: HomeTimelineStatus
+    
+//    var images: [String] = ["twinlake"]
     
     var body: some View {
         VStack(alignment: .leading) {
             HStack(spacing: 10) {
                 ZStack(alignment: .bottomTrailing) {
-                    Image(images.randomElement() ?? "twinlake")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 50, height: 50)
-                        .cornerRadius(25)
+                    AsyncImage(url: URL(string: timeline.user.avatar_large)) { image in
+                        image.resizable()
+                            .scaledToFill()
+                            .frame(width: 50, height: 50)
+                            .cornerRadius(25)
+                    } placeholder: {
+                        ProgressView()
+                            .frame(width: 50, height: 50)
+                    }
+
+//                    Image("twinlake")
+//                        .resizable()
+//                        .scaledToFill()
+//                        .frame(width: 50, height: 50)
+//                        .cornerRadius(25)
                     Image(systemName: "v.circle.fill")
                         .foregroundColor(.yellow)
                         .background(Circle().foregroundColor(Color.white))
                 }
                 VStack(alignment: .leading, spacing: 6) {
-                    Text("雷军")
+                    Text(timeline.user.name)
                     Text("48分钟前 Xiaomi 13 pro")
                         .font(.system(size: 12))
                         .foregroundColor(.gray.opacity(0.6))
@@ -98,7 +111,7 @@ struct MainListRowView: View {
                 Spacer()
             }
             
-            Text("我也非常喜欢这款手机")
+            Text(timeline.text)
                 .padding(.top, 10)
             
             VStack(alignment: .leading)  {
@@ -112,22 +125,29 @@ struct MainListRowView: View {
                     Spacer()
                 }
                 
-                if images.count == 1 {
-                    Image(images.randomElement() ?? "")
-                        .resizable()
-                        .scaledToFit()
+                if timeline.pic_urls.count == 1 {
+                    AsyncImage(url: URL(string: timeline.pic_urls.first?.thumbnail_pic ?? ""))
+//                        .resizable()
+                        .scaledToFill()
                         .cornerRadius(10)
                         .fixedSize(horizontal: false, vertical: false)
+                        .clipped()
                 } else {
-                    let columns = [
-                        GridItem(.adaptive(minimum: 100))
-                    ]
+                                        
+                    let columns = Array(repeating: GridItem(.flexible(), spacing: 0), count: 3)
                     LazyVGrid(columns: columns) {
-                        ForEach(images, id: \.self) { image in
-                            Image(image)
-                                .resizable()
-                                .scaledToFit()
-                                .cornerRadius(10)
+                        ForEach(timeline.pic_urls, id: \.thumbnail_pic) { thumbnail in
+                            
+                            AsyncImage(url: URL(string: thumbnail.thumbnail_pic)) { image in
+                                image
+                                    .resizable()
+                                    .scaledToFill()
+                                    .cornerRadius(10)
+                                    .clipped()
+                            } placeholder: {
+                                ProgressView()
+                            }
+                            .fixedSize(horizontal: false, vertical: false)
                         }
                     }
                 }

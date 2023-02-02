@@ -43,17 +43,18 @@ struct DiscoverHotView: View {
 
             
             ForEach(0...30, id: \.self) { _ in
-                if #available(iOS 15.0, *) {
+//                if #available(iOS 15.0, *) {
                     let randomIndex = Int.random(in: 0...9)
-                    MainListRowView(images: images[randomPick: randomIndex])
-                        .listSectionSeparator(.hidden)
+                Text("dasfds")
+//                    MainListRowView(timeline: <#T##HomeTimelineStatus#>)
+//                        .listSectionSeparator(.hidden)
 //                        .listRowInsets(EdgeInsets())
 
 //                    Color.red.padding(0)
-                } else {
-                    // Fallback on earlier versions
-                    MainListRowView(images: images)
-                }
+//                } else {
+//                    // Fallback on earlier versions
+//                    MainListRowView(images: images)
+//                }
             }
         }
         .listStyle(.plain)

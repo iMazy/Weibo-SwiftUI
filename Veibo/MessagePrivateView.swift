@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct MessagePrivateView: View {
+
+    @EnvironmentObject var userNetwork: UserViewModel
+
     var body: some View {
         ScrollView {
             LazyVStack(spacing: 0) {
-                ForEach(0...20, id: \.self) { index in
-                    MessagePrivateRowView(index: index)
+                ForEach(userNetwork.users) { (user) in
+                    MessagePrivateRowView(index: 1, user: user)
                         .padding(.vertical, 0)
                 }
                 .listRowInsets(EdgeInsets())
@@ -20,6 +23,9 @@ struct MessagePrivateView: View {
         }
 //        .edgesIgnoringSafeArea(.all)
         .background(Color.gray.opacity(0.1))
+        .onAppear {
+            userNetwork.getUsers()
+        }
     }
 }
 

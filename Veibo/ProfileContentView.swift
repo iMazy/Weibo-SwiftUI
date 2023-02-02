@@ -8,20 +8,44 @@
 import SwiftUI
 
 struct ProfileContentView: View {
+    
+    @EnvironmentObject var appState: AppState
+    
+//    @State var user: UserViewModel?
+    @State var user: UserInfoModel? = nil
+    
     var body: some View {
         
         NavigationView {
             ScrollView {
                 LazyVStack(spacing: 0) {
                     HStack {
-                        Image(systemName: "person.crop.circle")
-                            .resizable()
-                            .frame(width: 50, height: 50)
+                        if #available(iOS 15.0, *) {
+                            AsyncImage(url: URL(string: user?.avatar_large ?? "")) { image in
+                                image
+                                    .resizable()
+                                    .frame(width: 50, height: 50)
+                                    .clipShape(Circle())
+                                    //.overlay(RoundedRectangle(cornerRadius: 10)
+//                                              .stroke(Color.orange, lineWidth: 4))
+                                
+                            } placeholder: {
+                                ProgressView()
+                                    .frame(width: 50, height: 50)
+                                    .padding(EdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 10))
+                            }
                             .padding(EdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 10))
+                        } else {
+                            // Fallback on earlier versions
+                            Image(systemName: "person.crop.circle")
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .padding(EdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 10))
+                        }
                         
                         VStack(alignment: .leading, spacing: 6) {
-                            Text("简单不简单")
-                            Text("188粉丝")
+                            Text(user?.name ?? "简单不简单")
+                            Text("\((user?.followers_count ?? 0))粉丝")
                                 .font(Font.system(size: 12, weight: .light))
                         }
                         Spacer()
@@ -57,6 +81,19 @@ struct ProfileContentView: View {
                 .navigationBarTitleDisplayMode(.inline)
             }
             .background(Color.gray.opacity(0.1))
+            .onAppear {
+                
+                NetworkManager.shared.getRequest("https://api.weibo.com/2/users/show.json?access_token=\(appState.access_token ?? "")&uid=\(appState.uid ?? "")", type: UserInfoModel.self) { model in
+                    self.user = model
+                    print(model?.name)
+                    print(model?.description)
+                    print(model?.profile_image_url)
+                }
+                
+//                NetworkManager.shared.getRequest("https://api.weibo.com/2/statuses/home_timeline.json?access_token=\(appState.access_token ?? "")", type: String.self) { model in
+//
+//                }
+            }
         }
     }
     

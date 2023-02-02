@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A4221009298B680900AD28AA /* OAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4221008298B680900AD28AA /* OAuthView.swift */; };
 		A42E4B5C298A099D000DC3B4 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42E4B5B298A099D000DC3B4 /* HomePageView.swift */; };
 		A42E4B5E298A2092000DC3B4 /* MessagePrivateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42E4B5D298A2092000DC3B4 /* MessagePrivateView.swift */; };
 		A42E4B60298A358F000DC3B4 /* MessagePrivateRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42E4B5F298A358F000DC3B4 /* MessagePrivateRowView.swift */; };
+		A42E4B62298A549B000DC3B4 /* WebViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42E4B61298A549B000DC3B4 /* WebViewPage.swift */; };
+		A42E4B65298A6442000DC3B4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42E4B64298A6442000DC3B4 /* NetworkManager.swift */; };
+		A42E4B67298A6480000DC3B4 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42E4B66298A6480000DC3B4 /* Models.swift */; };
+		A42E4B69298A759E000DC3B4 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42E4B68298A759E000DC3B4 /* UserViewModel.swift */; };
 		A481405829890103005DCE55 /* DiscoverTrendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A481405729890103005DCE55 /* DiscoverTrendView.swift */; };
 		A481405A2989012B005DCE55 /* DiscoverHotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48140592989012B005DCE55 /* DiscoverHotView.swift */; };
 		A4F05780298769B900CB6359 /* VeiboApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0577F298769B900CB6359 /* VeiboApp.swift */; };
@@ -23,9 +28,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A4221008298B680900AD28AA /* OAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthView.swift; sourceTree = "<group>"; };
 		A42E4B5B298A099D000DC3B4 /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
 		A42E4B5D298A2092000DC3B4 /* MessagePrivateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagePrivateView.swift; sourceTree = "<group>"; };
 		A42E4B5F298A358F000DC3B4 /* MessagePrivateRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagePrivateRowView.swift; sourceTree = "<group>"; };
+		A42E4B61298A549B000DC3B4 /* WebViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPage.swift; sourceTree = "<group>"; };
+		A42E4B63298A5E82000DC3B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A42E4B64298A6442000DC3B4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		A42E4B66298A6480000DC3B4 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		A42E4B68298A759E000DC3B4 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		A481405729890103005DCE55 /* DiscoverTrendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverTrendView.swift; sourceTree = "<group>"; };
 		A48140592989012B005DCE55 /* DiscoverHotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverHotView.swift; sourceTree = "<group>"; };
 		A4F0577C298769B900CB6359 /* Veibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Veibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,8 +80,10 @@
 		A4F0577E298769B900CB6359 /* Veibo */ = {
 			isa = PBXGroup;
 			children = (
+				A42E4B63298A5E82000DC3B4 /* Info.plist */,
 				A4F0577F298769B900CB6359 /* VeiboApp.swift */,
 				A4F05781298769B900CB6359 /* ContentView.swift */,
+				A4221008298B680900AD28AA /* OAuthView.swift */,
 				A4F0578D2987700400CB6359 /* HomeContentView.swift */,
 				A42E4B5B298A099D000DC3B4 /* HomePageView.swift */,
 				A4F0578F2987701F00CB6359 /* DiscoverContentView.swift */,
@@ -80,6 +93,10 @@
 				A42E4B5D298A2092000DC3B4 /* MessagePrivateView.swift */,
 				A42E4B5F298A358F000DC3B4 /* MessagePrivateRowView.swift */,
 				A4F057932987703700CB6359 /* ProfileContentView.swift */,
+				A42E4B61298A549B000DC3B4 /* WebViewPage.swift */,
+				A42E4B64298A6442000DC3B4 /* NetworkManager.swift */,
+				A42E4B68298A759E000DC3B4 /* UserViewModel.swift */,
+				A42E4B66298A6480000DC3B4 /* Models.swift */,
 				A4F05783298769BA00CB6359 /* Assets.xcassets */,
 				A4F05785298769BA00CB6359 /* Preview Content */,
 			);
@@ -167,14 +184,19 @@
 				A481405829890103005DCE55 /* DiscoverTrendView.swift in Sources */,
 				A4F057942987703700CB6359 /* ProfileContentView.swift in Sources */,
 				A4F057922987702D00CB6359 /* MessageContentView.swift in Sources */,
+				A42E4B65298A6442000DC3B4 /* NetworkManager.swift in Sources */,
 				A4F0578E2987700400CB6359 /* HomeContentView.swift in Sources */,
 				A42E4B60298A358F000DC3B4 /* MessagePrivateRowView.swift in Sources */,
+				A4221009298B680900AD28AA /* OAuthView.swift in Sources */,
 				A4F057902987701F00CB6359 /* DiscoverContentView.swift in Sources */,
 				A481405A2989012B005DCE55 /* DiscoverHotView.swift in Sources */,
 				A42E4B5E298A2092000DC3B4 /* MessagePrivateView.swift in Sources */,
 				A4F05782298769B900CB6359 /* ContentView.swift in Sources */,
 				A42E4B5C298A099D000DC3B4 /* HomePageView.swift in Sources */,
+				A42E4B62298A549B000DC3B4 /* WebViewPage.swift in Sources */,
 				A4F05780298769B900CB6359 /* VeiboApp.swift in Sources */,
+				A42E4B69298A759E000DC3B4 /* UserViewModel.swift in Sources */,
+				A42E4B67298A6480000DC3B4 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,12 +327,13 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Veibo/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Veibo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -334,12 +357,13 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Veibo/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Veibo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

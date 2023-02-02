@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct HomePageView: View {
+
+    @EnvironmentObject var appState: AppState
+
+    @State var timelines: [HomeTimelineStatus] = []
     
     var isFollowed: Bool
 
@@ -15,19 +19,24 @@ struct HomePageView: View {
 
     var body: some View {
         List {
-            ForEach(0...30, id: \.self) { _ in
-                if #available(iOS 15.0, *) {
-                    let randomIndex = images.count >= 9 ? Int.random(in: 0...9) : 0
-                    MainListRowView(images: images[randomPick: randomIndex])
-                        .listSectionSeparator(.hidden)
-                } else {
-                    // Fallback on earlier versions
-                    MainListRowView(images: images)
-                }
+            ForEach(timelines, id: \.created_at) { timeline in
+//                if #available(iOS 15.0, *) {
+//                    let randomIndex = images.count >= 9 ? Int.random(in: 0...9) : 0
+                MainListRowView(timeline: timeline)
+//                } else {
+//                    // Fallback on earlier versions
+//                    MainListRowView(images: images)
+//                }
             }
         }
         .padding(.zero)
         .listStyle(.plain)
-        .background(Color.red)
+        .background(Color.white)
+        .onAppear {
+            NetworkManager.shared.getRequest("https://api.weibo.com/2/statuses/home_timeline.json?access_token=\(appState.access_token ?? "")", type: HomeTimeline.self) { model in
+                print(model?.statuses ?? [])
+                self.timelines = model?.statuses ?? []
+            }
+        }
     }
 }

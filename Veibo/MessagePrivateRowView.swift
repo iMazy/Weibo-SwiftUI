@@ -10,6 +10,7 @@ import SwiftUI
 struct MessagePrivateRowView: View {
     
     var index: Int
+    var user: User
     
     var body: some View {
         VStack {
@@ -23,12 +24,13 @@ struct MessagePrivateRowView: View {
                     .cornerRadius(20)
                 VStack(alignment: .leading, spacing: 5) {
                     HStack {
-                        Text("吴京")
+                        Text(user.name)
+                            .font(Font.system(size: 15))
                         Spacer()
-                        Text("2022-01-12").font(.system(size: 12))
+                        Text(user.phone).font(.system(size: 12))
                             .foregroundColor(Color.black.opacity(0.6))
                     }
-                    Text("2小时前asdfsafsafafdsafasfasdfsafsafsafsafasdfsafsafafdsafasfasdfsafsafsafsaf")
+                    Text(user.company.catchPhrase)
                         .font(.system(size: 13))
                         .foregroundColor(Color.black.opacity(0.4))
                         .lineLimit(1)
@@ -44,8 +46,8 @@ struct MessagePrivateRowView: View {
     }
 }
 
-struct MessagePrivateRowView_Previews: PreviewProvider {
-    static var previews: some View {
-        MessagePrivateRowView(index: 0)
-    }
-}
+//struct MessagePrivateRowView_Previews: PreviewProvider {
+//    static var previews: some View {
+////        MessagePrivateRowView(index: 0, user: UserViewModel().users.first)
+//    }
+//}

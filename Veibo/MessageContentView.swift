@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct MessageContentView: View {
-    
+
+    var userNetwork = UserViewModel()
+
     @State private var selectedTab: Int = 0
     
     var body: some View {
@@ -29,10 +31,19 @@ struct MessageContentView: View {
                             selectedTab = 2
                         }
                         .frame(width: 70)
-                        Button("私信") {
-                            selectedTab = 3
+                        
+                        ZStack(alignment: .topTrailing) {
+                            Button("私信") {
+                                selectedTab = 3
+                            }
+                            .frame(width: 70)
+                            Text("1")
+                                .font(Font.system(size: 10))
+                                .foregroundColor(Color.white)
+                                .frame(width: 12, height: 12)
+                                .background(Circle().fill(Color.red))
+                                .padding(EdgeInsets(top: 0, leading: 60, bottom: 0, trailing: 0))
                         }
-                        .frame(width: 70)
                     }
                     .foregroundColor(.black.opacity(0.8))
                     .font(.system(size: 14))
@@ -62,6 +73,7 @@ struct MessageContentView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("消息")
         }
+        .environmentObject(userNetwork)
     }
 }
 
